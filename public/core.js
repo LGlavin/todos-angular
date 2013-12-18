@@ -6,19 +6,17 @@ function mainController($scope, $http) {
   $http.get('api/todos')
     .success(function(data) {
       $scope.todos = data;
-      console.log(data);
     })
     .error(function(data) {
       console.log('Error: ' + data);
     
     });
 
-  $scope.createTodo = function(){
+  $scope.createTodo = function() {
     $http.post('/api/todos', $scope.formData)
       .success(function(data) {
-        $scope.formData = {};
+        $('input').val('');
         $scope.todos = data;
-        console.log(data);
       })
      .error(function(data) {
        console.log('Error: ' + data);
