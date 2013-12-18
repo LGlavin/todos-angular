@@ -13,6 +13,9 @@ app.configure(function() {
   app.use(express.methodOverride());
 
 });
+// routes ======================================================================
+require('./app/routes.js')(app);
+
 
 app.listen(8080);
 console.log("App listening on port 8080");
